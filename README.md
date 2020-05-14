@@ -1,3 +1,7 @@
 # Wetube
 
 Cloning Youtube with Vanila and NodeJS
+
+## Pages:
+
+- [ ] Home
