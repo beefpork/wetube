@@ -1,10 +1,10 @@
 import passport from "passport";
 import GitHubStrategy from "passport-github";
-import FacebookStrategy from "passport-facebook";
+import NaverStrategy from "passport-naver";
 import User from "./models/User";
 import {
   githubLoginCallback,
-  facebookLoginCallback,
+  naverLoginCallback,
 } from "./controllers/userController";
 import routes from "./routes";
 
@@ -22,13 +22,13 @@ passport.use(
 );
 
 passport.use(
-  new FacebookStrategy(
+  new NaverStrategy(
     {
-      clientID: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET,
-      callbackURL: `http://localhost:4000${routes.facebookCallback}`,
+      clientID: process.env.NAVER_ID,
+      clientSecret: process.env.NAVER_SECRET,
+      callbackURL: `http://localhost:4000${routes.naverCallback}`,
     },
-    facebookLoginCallback
+    naverLoginCallback
   )
 );
 

@@ -46,7 +46,6 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
     const user = await User.findOne({ email });
     if (user) {
       user.githubId = id;
-      user.avatarUrl = avatarUrl;
       user.save();
       return cb(null, user);
     }
@@ -66,18 +65,30 @@ export const postGithubLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
-export const facebookLogin = passport.authenticate("facebook");
+export const naverLogin = passport.authenticate("naver");
 
-export const facebookLoginCallback = (
-  accessToken,
-  refreshToken,
-  profile,
-  cb
-) => {
-  console.log(accessToken, refreshToken, profile, cb);
+export const naverLoginCallback = async (_, __, profile, done) => {
+  const {
+    _json: { email, id },
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.naverId = id;
+      user.save();
+      return done(null, user);
+    }
+    const newUser = await User.create({
+      email,
+      naverId: id,
+    });
+    return done(null, newUser);
+  } catch (error) {
+    return done(error);
+  }
 };
 
-export const postFacebookLogin = (req, res) => {
+export const postNaverLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
