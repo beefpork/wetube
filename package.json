@@ -42,8 +42,7 @@
   "scripts": {
     "dev:server": "nodemon --exec babel-node init.js --delay 2",
     "dev:assets": "WEBPACK_ENV=development webpack -w",
-    "build:assets": "WEBPACK_ENV=production webpack",
-    "ngrok": "ngrok http 4000"
+    "build:assets": "WEBPACK_ENV=production webpack"
   },
   "devDependencies": {
     "eslint": "^7.0.0",
