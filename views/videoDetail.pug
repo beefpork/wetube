@@ -6,11 +6,6 @@ block content
         +videoPlayer({
             src:video.fileUrl
         })
-<<<<<<< HEAD
-=======
-        .video__player
-            video(src=`/${video.fileUrl}`)
->>>>>>> 63b88596f3f394df6ec082a622c1aa1896fe3556
         .video__info
             if loggedUser && video.creator.id === loggedUser.id
                 a(href=routes.editVideo(video.id))
@@ -28,4 +23,4 @@ block content
             if video.comments.length === 1
                 span.video__comment-number 1 comment
             else
-                span.video__comment-number #{video.comments.length} comments 
+                span.video__comment-number #{video.comments.length} comments
