@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 mixin videoPlayer(video = {})
     .videoPlayer#jsVideoPlayer
         video(src=`/${video.src}`)
+=======
+mixin videoPlayer(video= {})
+    .videoPlayer
+        video(src=`/${video.src}`, controls)
+>>>>>>> 63b88596f3f394df6ec082a622c1aa1896fe3556
         .videoPlayer__controls
             .videoPlayer__column
                 span
@@ -8,7 +14,11 @@ mixin videoPlayer(video = {})
                 span
                     |00:00 / 10:00
             .videoPlayer__column
+<<<<<<< HEAD
                 span#jsPlayButton
+=======
+                span
+>>>>>>> 63b88596f3f394df6ec082a622c1aa1896fe3556
                     i.fas.fa-play
             .videoPlayer__column
                 span

@@ -6,6 +6,11 @@ block content
         +videoPlayer({
             src:video.fileUrl
         })
+<<<<<<< HEAD
+=======
+        .video__player
+            video(src=`/${video.fileUrl}`)
+>>>>>>> 63b88596f3f394df6ec082a622c1aa1896fe3556
         .video__info
             if loggedUser && video.creator.id === loggedUser.id
                 a(href=routes.editVideo(video.id))
